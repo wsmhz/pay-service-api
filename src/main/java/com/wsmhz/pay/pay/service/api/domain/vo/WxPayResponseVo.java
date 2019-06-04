@@ -11,9 +11,8 @@ import lombok.ToString;
  */
 @Setter
 @Getter
-@Builder
 @ToString
-public class WxPayResponseVo {
+public class WxPayResponseVo extends PayResponseVo{
 
     // 交易类型
     private String tradeType;
@@ -38,4 +37,18 @@ public class WxPayResponseVo {
     private String packageValue;
 
     private String paySign;
+
+    @Builder
+    public WxPayResponseVo(String platform, String tradeType, String prepayId, String qrCode, String nonceStr, String timeStamp, String appId, String signType, String packageValue, String paySign) {
+        super(platform);
+        this.tradeType = tradeType;
+        this.prepayId = prepayId;
+        this.qrCode = qrCode;
+        this.nonceStr = nonceStr;
+        this.timeStamp = timeStamp;
+        this.appId = appId;
+        this.signType = signType;
+        this.packageValue = packageValue;
+        this.paySign = paySign;
+    }
 }
